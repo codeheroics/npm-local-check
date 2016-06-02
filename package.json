@@ -1,0 +1,20 @@
+{
+  "name": "npm-local-check",
+  "version": "1.0.0",
+  "description": "Checks the installed versions of npm packages against the versions in package.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "package.json",
+    "dependencies",
+    "check"
+  ],
+  "author": "Hugo Agbonon (@codeheroics)",
+  "license": "ISC",
+  "dependencies": {
+    "semver": "^5.1.0"
+  }
+}
