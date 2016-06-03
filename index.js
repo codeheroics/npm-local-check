@@ -1,11 +1,12 @@
 const { exec } = require('child_process')
 const semver = require('semver')
+const currentWokingDirectory = process.cwd()
 const cmd = 'npm list --depth 0 --json'
 
 let packageDependencies
 
 try {
-  const { dependencies, devDependencies } = require('./package.json')
+  const { dependencies, devDependencies } = require(`${currentWokingDirectory}/package.json`)
   packageDependencies = Object.assign({}, dependencies, devDependencies)
 } catch (err) {
   if (err instanceof SyntaxError) {
@@ -13,7 +14,7 @@ try {
     process.exit(1)
   }
   if (err.message === 'Cannot find module \'./package.json\'') {
-    console.error(`No package.json was found in ${process.cwd()}`)
+    console.error(`No package.json was found in ${currentWokingDirectory}`)
     process.exit(1)
   }
   throw err
